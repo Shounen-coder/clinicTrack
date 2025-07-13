@@ -1,0 +1,35 @@
+.react-calendar {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.react-calendar__tile {
+  background: transparent;
+  border-radius: 6px;
+  padding: 0.75rem 0.25rem;
+  color: white;
+  padding: 20px 0 !important;    /* increase vertical padding */
+  height: 80px !important;        /* fixed height for tiles */
+  max-height: 60px !important;
+}
+
+.react-calendar__tile--active {
+  background: #a855f7;
+  color: white;
+}
+
+.react-calendar__tile--now {
+  background: #333;
+}
+
+.react-calendar__navigation button {
+  color: white;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #f472b6;
+}
