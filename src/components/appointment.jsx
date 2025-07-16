@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 const doctors = ['Dr. X', 'Dr. Y', 'Dr. Z'];
 
@@ -15,7 +16,10 @@ const AppointmentModal = ({ selectedDate, onClose, onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!patient || !doctor || !time) return;
+    if (!patient || !doctor || !time) {
+      toast.error('Please fill in all fields');
+      return;
+    };
 
     const newAppointment = {
       id: Date.now(),

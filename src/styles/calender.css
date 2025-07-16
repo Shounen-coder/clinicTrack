@@ -20,10 +20,10 @@
 .react-calendar__tile--active {
   background: #a855f7;
   color: white;
-}
+} 
 
 .react-calendar__tile--now {
-  background: #333;
+  background-image: linear-gradient(to right, #ec4899, #a855f7);
 }
 
 .react-calendar__navigation button {
