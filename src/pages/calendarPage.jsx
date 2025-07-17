@@ -24,11 +24,11 @@ const CalendarPage = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen bg-black text-white transition-colors duration-300">
+    <div className="flex h-screen w-screen bg-gradient-to-br from-white via-pink-100 to-purple-200 transition-colors duration-300">
       {/* Sidebar Toggle Button */}
       <button
         onClick={() => setIsSidebarOpen(true)}
-        className="md:hidden absolute top-4 left-4 z-50 bg-purple-700 text-white px-3 py-2 rounded"
+        className="md:hidden absolute top-4 left-4 z-50 bg-purple-700 px-3 py-2 rounded"
       >
         ☰
       </button>
@@ -36,7 +36,7 @@ const CalendarPage = () => {
       {/* Sidebar Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black bg-opacity-70 md:hidden"
+          className="fixed inset-0 z-40 bg-gradient-to-br from-white via-pink-100 to-purple-200 md:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
@@ -45,13 +45,13 @@ const CalendarPage = () => {
       <aside
         className={`fixed md:relative z-50 transition-transform duration-300 md:translate-x-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } w-[260px] bg-gray-100 dark:bg-[#111] border-r border-gray-300 dark:border-purple-700 h-full p-6`}
+        } w-[260px] bg-gradient-to-br from-white via-pink-100 to-purple-200 border-r dark:border-purple-600 h-full p-6`}
       >
-        <h2 className="text-xl font-semibold mb-6">MENU</h2>
+        <h2 className="text-xl text-black font-semibold mb-6">MENU</h2>
         <ul className="space-y-3">
           <li>
             <button
-              className="w-full text-left hover:text-purple-400"
+              className="w-full text-black text-left shadow-md hover:text-purple-400"
               onClick={() =>
                 setView(view === "calendar" ? "appointments" : "calendar")
               }
@@ -61,12 +61,12 @@ const CalendarPage = () => {
           </li>
 
           <li>
-            <button className="w-full text-left hover:text-purple-400">
+            <button className="w-full text-black text-left shadow-md hover:text-purple-400">
               Settings
             </button>
           </li>
           <li>
-            <button className="w-full text-left hover:text-purple-400">
+            <button className="w-full text-black text-left shadow-md hover:text-purple-400">
               Log Out
             </button>
           </li>
@@ -82,20 +82,20 @@ const CalendarPage = () => {
             </h1>
           </div>
 
-          <p className="text-gray-600 dark:text-gray-400 mb-10">
+          <p className="text-gray-600 text-gray-700 mb-10">
             Manage your clinic appointments
           </p>
 
           {/* Mobile Date Picker */}
           <div className="block md:hidden mb-6">
-            <label className="text-sm text-gray-500 dark:text-gray-400 mb-1 block">
+            <label className="text-sm text-gray-600 mb-1 block">
               Pick a date
             </label>
             <DatePicker
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
               dateFormat="MMMM d, yyyy"
-              className="w-full p-2 rounded bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white"
+              className="w-full p-2 rounded bg-white shadow-md border border-gray-300 dark:border-gray-700 text-black"
             />
           </div>
 
@@ -112,7 +112,7 @@ const CalendarPage = () => {
               <div className="mt-10 text-center">
                 <button
                   onClick={() => setShowModal(true)}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded text-lg shadow-lg"
+                  className="bg-purple-600 hover:bg-purple-700 text-black px-6 py-3 rounded text-lg shadow-lg"
                 >
                   + Add Appointment
                 </button>
@@ -142,7 +142,7 @@ const CalendarPage = () => {
                 {appointments.filter(
                   (appt) => appt.date === selectedDate.toDateString()
                 ).length === 0 ? (
-                  <p className="text-gray-500 dark:text-gray-400">
+                  <p className="text-gray-700">
                     No appointments for this day.
                   </p>
                 ) : (
@@ -154,7 +154,7 @@ const CalendarPage = () => {
                       .map((appt) => (
                         <li
                           key={appt.id}
-                          className="bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-purple-700 rounded p-4 flex justify-between items-center"
+                          className="bg-gray-100 border border-gray-300 dark:border-purple-600 rounded p-4 flex justify-between items-center"
                         >
                           <div>
                             <p>
@@ -170,7 +170,7 @@ const CalendarPage = () => {
                               {appt.doctor}
                             </p>
                             <p>
-                              <span className="text-gray-500 dark:text-gray-400">
+                              <span className="text-gray-700">
                                 Time:
                               </span>{" "}
                               {appt.time}
@@ -178,7 +178,7 @@ const CalendarPage = () => {
                           </div>
                           <button
                             onClick={() => handleDelete(appt.id)}
-                            className="text-red-500 hover:text-red-700 font-bold text-sm"
+                            className="text-red-500 hover:bg-[#e50909] hover:text-white font-bold text-sm"
                           >
                             Delete
                           </button>
@@ -223,7 +223,7 @@ const CalendarPage = () => {
                           {appt.doctor}
                         </p>
                         <p>
-                          <span className="text-gray-500 dark:text-gray-400">
+                          <span className="text-gray-500">
                             Time:
                           </span>{" "}
                           {appt.time}
